@@ -1,0 +1,66 @@
+.search-result {
+    padding: 20px;
+}
+  
+.back-button {
+    display: inline-block;
+    padding: 10px;
+    background-color: #28a745;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-bottom: 25px;
+    margin-top: 0px;
+}
+
+.back-button-section {
+    background-color: lightgray;
+}
+  
+.back-button:hover {
+    background-color: #218838;
+}
+  
+.search-results-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+  
+.search-result-item {
+    display: flex;
+    margin-bottom: 20px;
+}
+  
+.search-result-item img {
+    width: 150px;
+    margin: 20px;
+    border-radius: 5px;
+}
+  
+.movie-details {
+    flex: 1;
+    text-align: left;
+}
+
+.movie-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.movie-rating {
+    margin-bottom: 5px;
+}
+
+.movie-release-date {
+    margin-bottom: 10px;
+}
+
+.movie-overview {
+    color: #555;
+}
+
+.search-result-query {
+    text-align: left;
+    margin-left: 20px;
+}

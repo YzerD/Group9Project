@@ -1,0 +1,39 @@
+.trending-contents {
+    padding: 20px;
+  }
+  
+  .trending-section {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto; 
+  }
+  
+  .trending-section > div {
+    flex: 0 0 auto;
+    margin-right: 10px; 
+  }
+  
+  .trending-section h2 {
+    margin-bottom: 10px;
+  }
+  
+  .movie-list {
+    display: flex;
+    overflow-x: auto;
+  }
+  
+  .movie-item {
+    flex: 0 0 auto;
+    margin-right: 20px;
+    text-align: center;
+  }
+
+  .movie-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    white-space: pre-wrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 300px;
+}

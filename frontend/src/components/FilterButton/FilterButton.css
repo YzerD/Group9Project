@@ -1,0 +1,11 @@
+.filter-button-container {
+    background-color: lightgray;
+}
+
+.filter-button-container button{
+    font-size: 18px;
+}
+
+.filter-button-container button:hover {
+    background-color: darkgreen;
+}

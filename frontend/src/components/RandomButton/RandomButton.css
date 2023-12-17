@@ -1,0 +1,20 @@
+.random-button-container {
+    background-color: lightgray;
+    padding-top: 10px;
+    padding-bottom: 25px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.random-button {
+    background-color: #28a745;
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+.random-button:hover {
+    background-color: darkgreen;
+}
