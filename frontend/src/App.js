@@ -17,6 +17,8 @@ import Login from './components/Auth/Login';
 import ForgotPassword from './components/Auth/ForgotPassword';
 
 function App() {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
   const [searchFilters, setSearchFilters] = useState({});
   const [filterParams, setFilterParams] = useState({});
   const [signupData, setSignupData] = useState({
@@ -34,23 +36,39 @@ function App() {
     setFilterParams({ ...filters, apiUrl: null });
   };
 
-  const handleSignup = async () => {
-    try {
-      const response = await axios.post('http://localhost:5000/signup', signupData);
-      console.log(response.data);
-    } catch (error) {
-      console.error(error.response.data);
-    }
-  };
+ const handleSignup = async () => {
+  try {
+    setLoading(true); // Add a loading state
+    setError(''); // Clear any previous error
 
-  const handleLogin = async () => {
-    try {
-      const response = await axios.post('http://localhost:5000/login', loginData);
-      console.log(response.data);
-    } catch (error) {
-      console.error(error.response.data);
-    }
-  };
+    const response = await axios.post('http://localhost:5000/signup', signupData);
+    console.log(response.data);
+
+    // Redirect to a success page or update UI accordingly
+  } catch (error) {
+    console.error(error.response.data);
+    setError('Failed to sign up. Please check your input and try again.');
+  } finally {
+    setLoading(false); // Set loading to false after request completes
+  }
+};
+
+const handleLogin = async () => {
+  try {
+    setLoading(true);
+    setError('');
+
+    const response = await axios.post('http://localhost:5000/login', loginData);
+    console.log(response.data);
+
+    // Redirect to a success page or update UI accordingly
+  } catch (error) {
+    console.error(error.response.data);
+    setError('Invalid email or password. Please try again.');
+  } finally {
+    setLoading(false);
+  }
+};
 
   return (
     <Router>
