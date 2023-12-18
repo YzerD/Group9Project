@@ -1,5 +1,3 @@
-
-// server.js
 const express = require('express');
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt');
@@ -37,10 +35,8 @@ const resetTokenSchema = new mongoose.Schema({
 const ResetToken = mongoose.model('ResetToken', resetTokenSchema);
 
 // MongoDB Connection for Movie API
-const uri = process.env.MONGODB_URI_MOVIE;
+const uri = process.env.MONGODB_URI;
 const apiKey = process.env.REACT_APP_API_KEY || '';
-
-let movieCollection;
 
 const client = new MongoClient(uri, {
   serverApi: {
@@ -172,9 +168,6 @@ app.post('/random/default', async (req, res) => {
 
     const movies = await response.json();
 
-    // Select a random movie from the
-
- list
     const randomMovie = movies.results[Math.floor(Math.random() * movies.results.length)];
 
     res.json({

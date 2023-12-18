@@ -40,3 +40,14 @@ button {
     border-radius: 5px;
     cursor: pointer;
 }
+
+button:hover {
+    background-color: darkgreen;
+}
+
+.left a.logo {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: white;
+}

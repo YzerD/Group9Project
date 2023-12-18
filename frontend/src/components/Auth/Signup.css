@@ -1,0 +1,12 @@
+.input-group {
+    margin-top: 15px;
+}
+
+.signup-button {
+    margin-top: 15px;
+    font-size: 18px;
+}
+
+.signup-button:hover {
+    background-color: darkgreen;
+}

@@ -5,21 +5,24 @@ import genres from '../genres/genres';
 
 const FilterResult = ({ selectedFilters }) => {
   const [filterResults, setFilterResults] = useState([]);
-  const apiKey = process.env.REACT_APP_API_KEY || '';
-  const genres = selectedFilters.genres || [];
-  const decades = selectedFilters.decades || [];
-  const rating = selectedFilters.rating || 0;
-  const runtime = selectedFilters.runtime || 0;
+  const apiKey = process.env.REACT_APP_API_KEY || {};
+
+  // Destructuring with default values to handle potential undefined properties
+  const { genres: selectedGenres = [], decades: selectedDecades = [], rating = 0, runtime = 0 } = selectedFilters || {};
 
   useEffect(() => {
     const fetchFilterResults = async () => {
       try {
+        // Ensure that genres and decades are arrays
+        const genresArray = Array.isArray(selectedGenres) ? selectedGenres : [];
+        const decadesArray = Array.isArray(selectedDecades) ? selectedDecades : [];
+
         // Construct the API query based on the selected filters
-        const queryParams = `&with_genres=${genres.join('|')}&primary_release_date.gte=${decades[0]}-01-01&primary_release_date.lte=${decades[decades.length - 1]}-12-31&vote_average.lte=${rating}&with_runtime.lte=${runtime}`;
+        const queryParams = `&with_genres=${genresArray.join('|')}&primary_release_date.gte=${decadesArray[0]}-01-01&primary_release_date.lte=${decadesArray[decadesArray.length - 1]}-12-31&vote_average.lte=${rating}&with_runtime.lte=${runtime}`;
 
         const response = await fetch(
-            `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}${queryParams}`
-          );
+          `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}${queryParams}`
+        );
 
         if (!response.ok) {
           throw new Error('Error in response');
