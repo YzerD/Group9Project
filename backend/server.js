@@ -14,7 +14,7 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 // MongoDB Connection
-const mongoUri = process.env.MONGODB_URI || 'mongodb://localhost:27017/react-auth';
+const mongoUri = process.env.MONGODB_URI || 'mongodb://localhost:27017/auth';
 mongoose.connect(mongoUri, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
