@@ -1,9 +1,15 @@
-// components/Auth/Signup.js
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Signup.css';
 
-const Signup = ({ signupData, setSignupData, handleSignup }) => {
+const Signup = () => {
+  const [signupData, setSignupData] = useState({ username: '', email: '', password: '' });
+
+  const handleSignup = () => {
+    // Implement signup logic here
+    console.log('Signing up with:', signupData);
+  };
+
   return (
     <div>
        <div className="back-button-section">
@@ -43,7 +49,6 @@ const Signup = ({ signupData, setSignupData, handleSignup }) => {
             onChange={(e) => setSignupData({ ...signupData, password: e.target.value })}
           />
         </div>
-
         <button type="button" onClick={handleSignup} className='signup-button'>
           Sign Up
         </button>

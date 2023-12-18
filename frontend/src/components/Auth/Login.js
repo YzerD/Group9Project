@@ -1,9 +1,15 @@
-// components/Auth/Login.js
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Login.css';
 
-const Login = ({ loginData, setLoginData, handleLogin }) => {
+const Login = () => {
+  const [loginData, setLoginData] = useState({ email: '', password: '' });
+
+  const handleLogin = () => {
+    // Implement login logic here
+    console.log('Logging in with:', loginData);
+  };
+
   return (
     <div>
       <div className="back-button-section">
